@@ -10,8 +10,7 @@ app.use(cors());
 app.use(express.json());
 app.use(logger('dev'));
 
-const { Categories, Rides, } = require('./models');
-// import user
+const { Categories, Rides, Users } = require('./models');
 
 app.get('/', (req, res) => {
   res.send('Root route!');
@@ -51,11 +50,10 @@ app.get('/ride/:id', async (req, res) => {
   }
 });
 
-// user post route to send email to db
-// app.post('/ride/:id', async (req, res) => {
-//   const newUser = await User.create(req.body);
-//   res.json(newUser);
-// });
+app.post('/ride/:id', async (req, res) => {
+  const newUser = await Users.create(req.body);
+  res.json(newUser);
+});
 
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
