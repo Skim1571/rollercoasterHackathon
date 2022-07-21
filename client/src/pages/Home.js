@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Search from '../components/Search'
+// import Search from '../components/Search'
 
 
 const Home = () => {
@@ -28,20 +28,20 @@ const Home = () => {
 //   }
   
 let rideCard
-let Categorycard
+let categoryCard
 
-if (searched){
-  rideCard = <RideCard ride={searchResults}/>
-  categoryCard = <CategoryCard category={category}/>
-}
+// if (searched){
+//   rideCard = <RideCard ride={searchResults}/>
+//   categoryCard = <CategoryCard category={category}/>
+// }
 
   return (
     <div>
       <div className="search">
-        <Search 
+        {/* <Search 
         onChange={handleChange}
         onSubmit={getSearchResults}
-        />
+        /> */}
         <h2>Search Results</h2>
         <section className="search-results container-grid">
           {rideCard}
@@ -50,7 +50,7 @@ if (searched){
       <div className="categories">
         <h2>Categories</h2>
         <section className="container-grid">
-          {categoriesCard}
+          {categoryCard}
         </section>
       </div>
     </div>

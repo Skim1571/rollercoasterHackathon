@@ -95,11 +95,11 @@ button {
   justify-content: center;
 }
 
-.genres {
+.categories {
   width: 100%;
 }
 
-.genres h2,
+.categories h2,
 .search h2 {
   text-align: center;
 }
