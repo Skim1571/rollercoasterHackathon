@@ -6,7 +6,7 @@ const RideCard = (props) => {
 
 
   const showRide = (ride) => {
-    navigate(`/rides/details/${ride.id}`)
+    navigate(`/rides/details/${ride._id}`)
   }
 
   return (
@@ -18,6 +18,7 @@ const RideCard = (props) => {
               <img src={ride.imageUrl} alt="image" />
             </div>
             <div className="info-wrapper flex-col">
+              <h2>{ride.name}</h2>
               <h3>{ride.wait}</h3>
               <p>{ride.price}</p>
             </div>
