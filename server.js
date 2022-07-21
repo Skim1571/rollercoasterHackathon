@@ -33,6 +33,11 @@ app.get('/categories/:id', async (req, res) => {
   }
 });
 
+app.get('/rides', async (req, res) => {
+  const rides = await Rides.find({});
+  res.json(rides);
+});
+
 app.listen(PORT, () => {
   console.log(`Express server listening on port ${PORT}`);
 });
