@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import RideCard from '../components/RideCard'
-// import Search from '../components/Search'
+import Search from '../components/Search'
 
 
 const Home = () => {
@@ -17,9 +17,9 @@ const Home = () => {
 //     getGenres()
 //   },[])
 
-//   const handleChange = (event) => {
-//     setSearchQuery( event.target.value)
-//   }
+  // const handleChange = (event) => {
+  //   setSearchQuery( event.target.value)
+  // }
   
 //   const getSearchResults = async (event) => {
 //     event.preventDefault()
@@ -41,7 +41,7 @@ if (searched){
       <div className="search">
         {/* <Search 
         onChange={handleChange}
-        onSubmit={getSearchResults}
+        // onSubmit={getSearchResults}
         /> */}
         <h2>Search Results</h2>
         <section className="search-results container-grid">
@@ -49,7 +49,7 @@ if (searched){
         </section>
       </div>
       <div className="categories">
-        <h2>Categories</h2>
+        <h2>Ride Categories</h2>
         <section className="container-grid">
           {categoryCard}
         </section>
