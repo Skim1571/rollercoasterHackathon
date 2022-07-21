@@ -15,7 +15,6 @@ const Home = () => {
 useEffect(()=>{
   const getCategories = async () => {
     let res = await axios.get(`${BASE_URL}/categories`)
-console.log(res.data)
     setCategories(res.data)}
     getCategories()
   },[])
@@ -27,7 +26,8 @@ console.log(res.data)
   const getSearchResults = async (event) => {
     event.preventDefault()
     let res = await axios.get(`${BASE_URL}/rides`)
-    setSearchResults(res.data.results)
+    console.log(`searchresults`, res)
+    setSearchResults(res.data)
     toggleSearched(true)
   }
   
