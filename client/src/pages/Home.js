@@ -39,6 +39,7 @@ if (searched){
   categoryCard = <CategoryCard categories={category}/>
 }
 
+
   return (
     <div>
       <div className="search">
