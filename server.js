@@ -22,9 +22,14 @@ app.get('/categories', async (req, res) => {
 });
 
 app.get('/categories/:id', async (req, res) => {
-  const { id } = req.params;
-  const category = await Categories.findById(id);
-  res.json(category);
+  try {
+    const { id } = req.params;
+    const category = await Categories.findById(id);
+    res.json(category);
+  } catch (e) {
+    console.log(e);
+    res.send('Category not found!');
+  }
 });
 
 app.listen(PORT, () => {
