@@ -1,0 +1,29 @@
+{
+  "name": "rollercoasterhackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skim1571/rollercoasterHackathon.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Skim1571/rollercoasterHackathon/issues"
+  },
+  "homepage": "https://github.com/Skim1571/rollercoasterHackathon#readme",
+  "devDependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "mongoose": "^6.4.6",
+    "morgan": "^1.10.0"
+  }
+}
