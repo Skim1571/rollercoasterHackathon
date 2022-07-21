@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import RideCard from '../components/RideCard'
 // import Search from '../components/Search'
 
 
@@ -30,10 +31,10 @@ const Home = () => {
 let rideCard
 let categoryCard
 
-// if (searched){
-//   rideCard = <RideCard ride={searchResults}/>
-//   categoryCard = <CategoryCard category={category}/>
-// }
+if (searched){
+  rideCard = <RideCard ride={searchResults}/>
+  // categoryCard = <CategoryCard category={category}/>
+}
 
   return (
     <div>
