@@ -47,16 +47,16 @@ if (searched){
         onChange={handleChange}
         onSubmit={getSearchResults}
         />
-        <h2>Search Results</h2>
-        <section className="search-results container-grid">
-          {rideCard}
-        </section>
-      </div>
+        </div>
       <div className="categories">
         <h2>Ride Categories</h2>
         <section className="container-grid">
           {categoryCard}
         </section>
+      </div>
+      <div>
+        <h2>Search Results</h2>
+        {rideCard}
       </div>
     </div>
   )
