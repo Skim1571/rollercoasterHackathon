@@ -25,6 +25,7 @@ app.get('/categories/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const category = await Categories.findById(id);
+    if (!category) throw Error('Category not found!');
     res.json(category);
   } catch (e) {
     console.log(e);
