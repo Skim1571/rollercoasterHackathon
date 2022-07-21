@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import RideCard from '../components/RideCard'
 import Search from '../components/Search'
+import axios from 'axios'
+import CategoryCard from '../components/CategoryCard'
 
 
 const Home = () => {
@@ -8,41 +10,42 @@ const Home = () => {
   const [searchResults, setSearchResults] = useState([])
   const [searched, toggleSearched] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
+  const BASE_URL = 'http://localhost:3001'
 
+useEffect(()=>{
+  const getCategories = async () => {
+    let res = await axios.get(`${BASE_URL}/categories`)
+console.log(res.data)
+    setCategories(res.data)}
+    getCategories()
+  },[])
 
-// useEffect(()=>{
-//   const getGenres = async () => {
-//     let res = await axios.get(`https://api.rawg.io/api/genres?key=${process.env.REACT_APP_RAWG_KEY}`)
-//     setGenres(res.data.results)}
-//     getGenres()
-//   },[])
-
-  // const handleChange = (event) => {
-  //   setSearchQuery( event.target.value)
-  // }
+  const handleChange = (event) => {
+    setSearchQuery( event.target.value)
+  }
   
-//   const getSearchResults = async (event) => {
-//     event.preventDefault()
-//     let res = await axios.get(`https://api.rawg.io/api/games?key=${process.env.REACT_APP_RAWG_KEY}&search=${searchQuery}`)
-//     setSearchResults(res.data.results)
-//     toggleSearched(true)
-//   }
+  const getSearchResults = async (event) => {
+    event.preventDefault()
+    let res = await axios.get(`${BASE_URL}/rides`)
+    setSearchResults(res.data.results)
+    toggleSearched(true)
+  }
   
 let rideCard
 let categoryCard
 
 if (searched){
-  rideCard = <RideCard ride={searchResults}/>
-  // categoryCard = <CategoryCard category={category}/>
+  rideCard = <RideCard rides={searchResults}/>
+  categoryCard = <CategoryCard categories={category}/>
 }
 
   return (
     <div>
       <div className="search">
-        {/* <Search 
+        <Search 
         onChange={handleChange}
-        // onSubmit={getSearchResults}
-        /> */}
+        onSubmit={getSearchResults}
+        />
         <h2>Search Results</h2>
         <section className="search-results container-grid">
           {rideCard}

@@ -13,13 +13,13 @@ const RideCard = (props) => {
     <div className="ride-card-grid">
       {
         props.rides.map((ride) => (
-          <div key={ride.id} className="card ride-card" onClick={() => showRide(ride)}>
+          <div key={ride._id} className="card ride-card" onClick={() => showRide(ride)}>
             <div className="img-wrapper">
-              <img src={ride.background_image} alt="image" />
+              <img src={ride.imageUrl} alt="image" />
             </div>
             <div className="info-wrapper flex-col">
-              <h3>{ride.name}</h3>
-              <p>{ride.rating}</p>
+              <h3>{ride.wait}</h3>
+              <p>{ride.price}</p>
             </div>
           </div>
         ))
