@@ -1,4 +1,0 @@
-# rollercoasterHackathon
-
-test
-test
