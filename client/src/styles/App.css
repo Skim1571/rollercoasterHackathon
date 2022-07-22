@@ -1,8 +1,9 @@
 * {
   font-family: 'Montserrat', sans-serif;
   font-family: 'Play', sans-serif;
-  color: #f9ba33;
-  
+  color: #c738b4;
+
+
 }
 
 .title {
@@ -11,8 +12,8 @@
 
 
 header {
-  background-color: #212121;
-  color: #f9ba33;
+  background-color: #29309b;
+  color: #f95b33;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -21,7 +22,7 @@ header {
 
 header nav a {
   margin: 0 1em;
-  color: #f9ba33;
+  color: #c738b4;
 }
 
 input {
@@ -53,7 +54,7 @@ input:focus::placeholder {
 
 main {
   padding: 2em 0;
-  
+
 }
 
 form {
@@ -79,7 +80,7 @@ button {
   max-width: 300px;
   max-height: 380px;
   border-radius: 6px;
-  background-color: #1b1b1b;
+  background-color: #29309b;
   cursor: pointer;
   transition: all 0.2s;
 }
@@ -96,7 +97,8 @@ button {
   width: 100%;
   max-height: 200px;
   object-fit: cover;
-  object-position: 20% 10%; /* try 20px 10px */ 
+  object-position: 20% 10%;
+  /* try 20px 10px */
 }
 
 .card .info-wrapper {
