@@ -1,26 +1,34 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
 import CategoryCard from '../components/CategoryCard'
-import BackButton from '../components/BackButton'
+import RideCard from '../components/RideCard'
+import RideDetails from './RideDetails'
 
 const BASE_URL = 'http://localhost:3001'
 
-const Categories = (props) => {
-  let navigate = useNavigate()
-  return (
-    <div>
-      <ul className="category-item">
-        <h2 className="ride-type">Ride Type: {props.type}</h2>
-        <h3 className="intensity">Intensity Level: {props.intensity}</h3>
-        <h3 className="nausea">Nausea Level: {props.type}</h3>
-        <img src={props.image_background} />
-      </ul>
-      <div>
-        <CategoryCard />
-      </div>
-      <BackButton />
-    </div>
-  )
+const Categories = () => {
+  const [categoryId, setCategoryId] = useState(false)
+  const [ride, setRide] = useState([])
+
+  let { categoryType } = useParams()
+
+  useEffect(() => {
+    const rideByCategory = async () => {
+      let res = await axios.get(`${BASE_URL}/components/RideCard`)
+      setRide(res.data.results)
+      setCategoryId(true)
+    }
+    rideByCategory()
+  }, [categoryType])
+
+  let rideCardReturned
+
+  if (categoryId) {
+    rideCardReturned = <RideCard rides={ride} />
+  }
+  return <div className="ride-container">{rideCardReturned}</div>
 }
 
 export default Categories
