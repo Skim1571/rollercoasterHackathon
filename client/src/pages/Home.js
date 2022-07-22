@@ -38,8 +38,7 @@ const Home = () => {
   if (searched) {
     rideCard = (<div><h2>Search Results</h2> <RideCard rides={searchResults} /></div>);
   }
-
-
+  
   return (
     <div>
       <div className="search">
@@ -55,6 +54,10 @@ const Home = () => {
         <h2>Ride Categories</h2>
         <section className="container-grid">
           <CategoryCard categories={category} />
+        </section>
+        <h2>Rides </h2>
+        <section className="container-grid">
+          {rideCard}
         </section>
       </div>
     </div>
