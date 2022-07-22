@@ -50,6 +50,22 @@ app.get('/ride/:id', async (req, res) => {
   }
 });
 
+app.get('/rides/details/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    let userArray = [] 
+    const users = await Users.find()
+    users.filter((user) => {
+      if(user.rides.indexOf(id !== -1)){
+        userArray.push(user.name)
+      }
+    })
+    res.send(userArray)
+  } catch (e) {
+    console.log(e)
+  }
+});
+
 app.post('/reserve', async (req, res) => {
   const newUser = await Users.create(req.body);
   res.json(newUser);

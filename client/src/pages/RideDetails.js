@@ -6,6 +6,7 @@ const BASE_URL = 'http://localhost:3001';
 const RideDetails = () => {
   const [selectedRide, setSelectedRide] = useState(false);
   const [rideDetails, setRideDetails] = useState(null);
+  const [userList, setUserList] = useState(null);
 
   let { rideId } = useParams();
 
@@ -18,11 +19,17 @@ const RideDetails = () => {
     getRideDetails();
   }, [rideId]);
 
+  const getUserList = async () => {
+    let res = await axios.get(`${BASE_URL}/ride/${rideId}`);
+    setUserList(res.data);
+  };
+
   let rideName;
   let rideImage;
   let rideWait;
   let ridePrice;
   let rideCategories;
+  let reserveList;
 
   if (selectedRide) {
     let ridecat;
@@ -48,7 +55,9 @@ const RideDetails = () => {
         break;
       default:
     }
-
+    reserveList = !!userList ? userList.array.forEach(user => {
+      <li>{user}</li>
+    }) : ""
   }
 
   return (
@@ -67,6 +76,9 @@ const RideDetails = () => {
         <div>
           {rideWait}
         </div>
+        <ul>
+          {reserveList}
+        </ul>
       </section>
     </div>
   );
