@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import RideCard from '../components/RideCard';
-import Search from '../components/Search';
 import axios from 'axios';
 import CategoryCard from '../components/CategoryCard';
 
@@ -31,9 +30,6 @@ const Home = () => {
     setSearchResults(res.data);
     toggleSearched(true);
   };
-
-  let rideCard;
-  let categoryCard;
 
 
   return (
