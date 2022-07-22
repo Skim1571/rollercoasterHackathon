@@ -59,12 +59,10 @@ const UserRide = (props) => {
 
       const postUser = async (event) => {
         event.preventDefault()
-        console.log(user)
-        await axios.post(`${BASE_URL}/reserve`, {
+        await axios.post(`${BASE_URL}/reserve`, 
           user
-        })
+        )
       }
-
 
 const handleChange = (event) => {
   const { id, value } = event.target;
