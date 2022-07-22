@@ -26,7 +26,6 @@ useEffect(()=>{
   const getSearchResults = async (event) => {
     event.preventDefault()
     let res = await axios.get(`${BASE_URL}/rides`)
-    console.log(`searchresults`, res)
     setSearchResults(res.data)
     toggleSearched(true)
   }
@@ -35,27 +34,23 @@ let rideCard
 let categoryCard
 
 if (searched){
+  
+} else {
   rideCard = <RideCard rides={searchResults}/>
   categoryCard = <CategoryCard categories={category}/>
 }
 
   return (
     <div>
-      <div className="search">
-        <Search 
-        onChange={handleChange}
-        onSubmit={getSearchResults}
-        />
-        </div>
       <div className="categories">
         <h2>Ride Categories</h2>
         <section className="container-grid">
           {categoryCard}
         </section>
-      </div>
-      <div>
-        <h2>Search Results</h2>
-        {rideCard}
+        <h2>Rides </h2>
+        <section className="container-grid">
+          {rideCard}
+        </section>
       </div>
     </div>
   )
