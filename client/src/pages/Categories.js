@@ -8,6 +8,11 @@ import RideDetails from './RideDetails'
 
 const BASE_URL = 'http://localhost:3001'
 
+const displaytest = () => {
+  ;<div>`This page is connected`</div>
+}
+displaytest()
+
 const Categories = () => {
   const [categoryId, setCategoryId] = useState(false)
   const [ride, setRide] = useState([])
