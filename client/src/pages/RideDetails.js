@@ -21,15 +21,35 @@ const RideDetails = () => {
     let rideName;
     let rideImage;
     let rideWait;
-    let ridePrice
+    let ridePrice;
+    let rideCategories;
 
 if(selectedRide){
-  rideName = !!rideDetails.name ? rideDetails.name : ''
+  let ridecat;
+  rideName = !!rideDetails.name ? <h3>{rideDetails.name}</h3> : ''
   rideImage = !!rideDetails.imageUrl ? <img src={rideDetails.imageUrl}/> : ""
   rideWait = !!rideDetails.wait ?  <h3>Average Wait Time: {rideDetails.wait}</h3> : ""
   ridePrice =  !!rideDetails.price ? <h3>Ride Price: {rideDetails.price}</h3> : ""
-}
+  switch (rideDetails.categories){
+    case '62d9a06df1fca9289a0d6e6d' :
+      rideCategories = <h3>Ride Category: Junior Ride</h3>
+      break;
+    case '62d9a06df1fca9289a0d6e6e' :
+      rideCategories = <h3>Ride Category: Gentle Ride</h3>
+      break;
+    case '62d9a06df1fca9289a0d6e6f' :
+      rideCategories = <h3>Ride Category: Water Ride</h3>
+      break;
+    case '62d9a06df1fca9289a0d6e70' :
+      rideCategories = <h3>Ride Category: Roller Coaster </h3>
+      break;
+    case '62d9a06df1fca9289a0d6e71' :
+      rideCategories = <h3>Ride Category: Thrill Ride</h3>
+      break;
+    default:
+  }
 
+}
 
   return  (
     <div className="ride-content">
@@ -40,9 +60,8 @@ if(selectedRide){
       </section>
       <section className="details">
         <div className="flex-row space">
-        <h3>
           {rideName}
-          </h3>
+          {rideCategories}
           {ridePrice}
         </div>
         <div>

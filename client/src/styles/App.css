@@ -104,7 +104,7 @@ button {
   text-align: center;
 }
 
-.game-content .image-container {
+.ride-content .image-container {
   width: 95vw;
   margin: auto;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -133,4 +133,15 @@ button {
 
 .space {
   justify-content: space-between;
+}
+
+.rideDetails {
+  text-align: center;
+}
+
+.checkbox {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 auto;
+
 }
