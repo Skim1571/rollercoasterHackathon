@@ -36,9 +36,7 @@ const Home = () => {
   let categoryCard;
 
   if (searched) {
-    rideCard = <RideCard rides={searchResults} />;
-  } else {
-    categoryCard = <CategoryCard categories={category} />;
+    rideCard = (<div><h2>Search Results</h2> <RideCard rides={searchResults} /></div>);
   }
 
 
@@ -49,7 +47,6 @@ const Home = () => {
           onChange={handleChange}
           onSubmit={getSearchResults}
         />
-        <h2>Search Results</h2>
         <section className="search-results container-grid">
           {rideCard}
         </section>
@@ -57,7 +54,7 @@ const Home = () => {
       <div className="categories">
         <h2>Ride Categories</h2>
         <section className="container-grid">
-          {categoryCard}
+          <CategoryCard categories={category} />
         </section>
       </div>
     </div>

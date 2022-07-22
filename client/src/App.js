@@ -11,10 +11,10 @@ function App() {
     <div className="App">
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path='/' element={<Home />} />
         <Route path='/about' element={<About />} />
-        <Route path="view/rides/:categoryId" element={<Categories />} />
-        <Route path="rides/details/:rideId" element={<RideDetails />} />
+        <Route path='view/rides/:categoryId' element={<Categories />} />
+        <Route path='rides/details/:rideId' element={<RideDetails />} />
       </Routes>
     </div>
   );

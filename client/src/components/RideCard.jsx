@@ -6,7 +6,7 @@ const RideCard = (props) => {
 
 
   const showRide = (ride) => {
-    navigate(`/rides/details/${ride.id}`);
+    navigate(`/rides/details/${ride._id}`);
   };
 
   return (
