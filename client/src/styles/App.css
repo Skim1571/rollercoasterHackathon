@@ -1,19 +1,20 @@
 * {
   font-family: 'Montserrat', sans-serif;
   font-family: 'Play', sans-serif;
-  color: #c738b4;
+  color: #ffffff;
 
 
 }
 
 .title {
   font-size: 48px;
+  color: #A51D5F;
 }
 
 
 header {
-  background-color: #29309b;
-  color: #f95b33;
+  background-color: #ffffff;
+  color: #A51D5F;
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -22,7 +23,7 @@ header {
 
 header nav a {
   margin: 0 1em;
-  color: #c738b4;
+  color: #A51D5F;
 }
 
 input {
@@ -80,7 +81,7 @@ button {
   max-width: 300px;
   max-height: 380px;
   border-radius: 6px;
-  background-color: #29309b;
+  background-color: #A51D5F;
   cursor: pointer;
   transition: all 0.2s;
 }
