@@ -6,7 +6,7 @@ const Search = (props) => {
         type="text"
         name="search"
         value={props.value}
-        placeholder="Search Rides"
+        placeholder="Reservation Name"
         onChange={(event) => props.onChange(event)}
       />
       <button type="submit">Submit</button>
