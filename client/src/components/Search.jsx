@@ -4,9 +4,16 @@ const Search = (props) => {
     <form onSubmit={props.onSubmit}>
       <input
         type="text"
-        name="search"
+        id="name"
         value={props.value}
         placeholder="Reservation Name"
+        onChange={(event) => props.onChange(event)}
+      />
+      <input
+        type="text"
+        id="email"
+        value={props.value}
+        placeholder="Email"
         onChange={(event) => props.onChange(event)}
       />
       <button type="submit">Submit</button>

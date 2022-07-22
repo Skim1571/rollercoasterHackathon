@@ -5,7 +5,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Categories from './pages/Categories'
 import RideDetails from './pages/RideDetails'
-import User from './pages/User'
+import Reserve from './pages/Reserve'
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <Route path='/about' element={<About/>}/>
         <Route path="view/rides/:categoryId" element={<Categories /> } />
         <Route path="rides/details/:rideId" element={<RideDetails/>} />
-        <Route path="reserve" element={<User/>} />
+        <Route path="reserve" element={<Reserve/>} />
       </Routes>
     </div>
   );
