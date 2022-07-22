@@ -25,7 +25,7 @@ const RideDetails = () => {
     let rideCategory;
 
 if(selectedRide){
-  rideName = !!rideDetails.name ? rideDetails.name : ''
+  rideName = !!rideDetails.name ? <h3>{rideDetails.name}</h3> : ''
   rideImage = !!rideDetails.imageUrl ? <img src={rideDetails.imageUrl}/> : ""
   rideWait = !!rideDetails.wait ?  <h3>Average Wait Time: {rideDetails.wait}</h3> : ""
   ridePrice =  !!rideDetails.price ? <h3>Ride Price: {rideDetails.price}</h3> : ""
@@ -43,7 +43,6 @@ if(selectedRide){
         <div className="flex-row space">
           {rideName}
           {rideCategory}
-          {rideName}
           {ridePrice}
         </div>
         <div>
