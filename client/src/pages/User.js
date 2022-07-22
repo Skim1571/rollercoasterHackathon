@@ -18,7 +18,7 @@ export const Checkbox = ({ isChecked, label, checkHandler, index }) => {
     </div>
   )
 }
-
+ 
 const UserRide = (props) => {
   const [rideDetails, setRideDetails] = useState(null)
   const [isResponse, setIsResponse] = useState(null)
@@ -26,7 +26,6 @@ const UserRide = (props) => {
   useEffect(() =>  {
     const getRideDetails = async () => {
       let res = await axios.get(`${BASE_URL}/rides`)
-      console.log(res.data)
       setIsResponse(true)
       setRideDetails(res.data)
 
@@ -34,7 +33,7 @@ const UserRide = (props) => {
       getRideDetails()
     },[])
 
-      const [rides, setRide] = useState(rideDetails)
+      const [rides, setRide] = useState({checkRide: ""})
     
       const updateCheckStatus = index => {
         setRide(
@@ -52,27 +51,20 @@ const UserRide = (props) => {
       showDetails = rideDetails.map((ride, index) => (
         <Checkbox
           key={ride._id}
-          isChecked={ride.checked}
-          checkHandler={() => updateCheckStatus(index)}
+          checkHandler={() => updateCheckStatus(checkRide = ride._id)}
           label={ride.name}
           index={index}
         />
-      ))}
+
+      ))
+      console.log(rides)}
+
       return (
         <div className="rideDetails">
-              <div >
+          <div >
             <h2>Reserve Ride Queue Position</h2>
-            </div>
-          <form onSubmit={props.onSubmit}>
-            <input
-              type="text"
-              name="search"
-              value={props.value}
-              placeholder="Name"
-              onChange={(event) => props.onChange(event)}
-            />
-            <button type="submit">Submit</button>
-          </form>
+          </div>
+          <Search />
           {showDetails}
         </div>
       )
