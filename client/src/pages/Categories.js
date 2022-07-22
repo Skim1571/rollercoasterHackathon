@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import CategoryCard from '../components/CategoryCard'
-import HomeButton from '../components/HomeButton'
+import BackButton from '../components/BackButton'
 
 const BASE_URL = 'http://localhost:3001'
 
@@ -18,7 +18,7 @@ const Categories = (props) => {
       <div>
         <CategoryCard />
       </div>
-      <HomeButton />
+      <BackButton />
     </div>
   )
 }
