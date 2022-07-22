@@ -1,52 +1,59 @@
-import { useEffect, useState } from 'react'
-import RideCard from '../components/RideCard'
-import Search from '../components/Search'
-import axios from 'axios'
-import CategoryCard from '../components/CategoryCard'
+import { useEffect, useState } from 'react';
+import RideCard from '../components/RideCard';
+import Search from '../components/Search';
+import axios from 'axios';
+import CategoryCard from '../components/CategoryCard';
 
 
 const Home = () => {
-  const [category, setCategories] = useState([])
-  const [searchResults, setSearchResults] = useState([])
-  const [searched, toggleSearched] = useState(false)
-  const [searchQuery, setSearchQuery] = useState('')
-  const BASE_URL = 'http://localhost:3001'
+  const [category, setCategories] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [searched, toggleSearched] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const BASE_URL = 'http://localhost:3001';
 
-useEffect(()=>{
-  const getCategories = async () => {
-    let res = await axios.get(`${BASE_URL}/categories`)
-    setCategories(res.data)}
-    getCategories()
-  },[])
+  useEffect(() => {
+    const getCategories = async () => {
+      let res = await axios.get(`${BASE_URL}/categories`);
+      setCategories(res.data);
+    };
+    getCategories();
+  }, []);
 
   const handleChange = (event) => {
-    setSearchQuery( event.target.value)
-  }
-  
+    setSearchQuery(event.target.value);
+  };
+
   const getSearchResults = async (event) => {
-    event.preventDefault()
-    let res = await axios.get(`${BASE_URL}/rides`)
-    setSearchResults(res.data)
-    toggleSearched(true)
+    event.preventDefault();
+    let res = await axios.get(`${BASE_URL}/rides`);
+    console.log(`searchresults`, res);
+    setSearchResults(res.data);
+    toggleSearched(true);
+  };
+
+  let rideCard;
+  let categoryCard;
+
+  if (searched) {
+    rideCard = (<div><h2>Search Results</h2> <RideCard rides={searchResults} /></div>);
   }
   
-let rideCard
-let categoryCard
-
-if (searched){
-  
-} else {
-  rideCard = <RideCard rides={searchResults}/>
-  categoryCard = <CategoryCard categories={category}/>
-}
-
-
   return (
     <div>
+      <div className="search">
+        <Search
+          onChange={handleChange}
+          onSubmit={getSearchResults}
+        />
+        <section className="search-results container-grid">
+          {rideCard}
+        </section>
+      </div>
       <div className="categories">
         <h2>Ride Categories</h2>
         <section className="container-grid">
-          {categoryCard}
+          <CategoryCard categories={category} />
         </section>
         <h2>Rides </h2>
         <section className="container-grid">
@@ -54,7 +61,7 @@ if (searched){
         </section>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

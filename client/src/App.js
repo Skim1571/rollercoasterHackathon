@@ -7,7 +7,6 @@ import Categories from './pages/Categories'
 import RideDetails from './pages/RideDetails'
 import User from './pages/User'
 
-
 function App() {
   return (
     <div className="App">

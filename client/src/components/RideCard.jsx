@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 const RideCard = (props) => {
 
-  let navigate = useNavigate()
+  let navigate = useNavigate();
 
 
   const showRide = (ride) => {
@@ -14,6 +14,7 @@ const RideCard = (props) => {
       {
         props.rides.map((ride) => (
           <div key={ride._id} className="card ride-card" onClick={() => showRide(ride)}>
+            <h2>{ride.name}</h2>
             <div className="img-wrapper">
               <img src={ride.imageUrl} alt="image" />
             </div>
@@ -26,7 +27,7 @@ const RideCard = (props) => {
         ))
       }
     </div>
-  )
-}
+  );
+};
 
-export default RideCard
+export default RideCard;
