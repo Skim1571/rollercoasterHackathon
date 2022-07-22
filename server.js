@@ -50,7 +50,7 @@ app.get('/ride/:id', async (req, res) => {
   }
 });
 
-app.post('/ride/:id', async (req, res) => {
+app.post('/reserve', async (req, res) => {
   const newUser = await Users.create(req.body);
   res.json(newUser);
 });

@@ -4,7 +4,8 @@ const Users = new Schema(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
-  },
+    rides: { type: Array, required: true }
+    },
   { timestamps: true }
 );
 
