@@ -18,9 +18,7 @@ const Home = () => {
     <div>
       <div className="categories">
         <h2>Ride Categories</h2>
-        <section className="container-grid">
-          <CategoryCard categories={category} />
-        </section>
+        <CategoryCard categories={category} />
       </div>
     </div>
   );

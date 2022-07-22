@@ -6,8 +6,8 @@ const RideCard = (props) => {
 
 
   const showRide = (ride) => {
-    navigate(`/rides/details/${ride._id}`)
-  }
+    navigate(`/rides/details/${ride._id}`);
+  };
 
   return (
     <div className="ride-card-grid">
@@ -16,7 +16,7 @@ const RideCard = (props) => {
           <div key={ride._id} className="card ride-card" onClick={() => showRide(ride)}>
             <h2>{ride.name}</h2>
             <div className="img-wrapper">
-              <img src={ride.imageUrl} alt="image" />
+              <img src={ride.img} alt="image" />
             </div>
             <div className="info-wrapper flex-col">
               <h2>{ride.name}</h2>

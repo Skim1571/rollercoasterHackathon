@@ -5,9 +5,11 @@ import axios from 'axios'
 import RideCard from '../components/RideCard'
 import RideDetails from './RideDetails'
 
-const BASE_URL = 'http://localhost:3001'
+
+const BASE_URL = 'http://localhost:3001';
 
 const Categories = (props) => {
+
   const [categoriesId, setCategoryId] = useState(false)
   const [rides, setRide] = useState([])
 
@@ -36,4 +38,4 @@ const Categories = (props) => {
   return <div className="ride-container">{rideCardReturned}</div>
 }
 
-export default Categories
+export default Categories;
