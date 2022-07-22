@@ -2,36 +2,36 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios'
-import CategoryCard from '../components/CategoryCard'
 import RideCard from '../components/RideCard'
 import RideDetails from './RideDetails'
 
 const BASE_URL = 'http://localhost:3001'
 
-const displaytest = () => {
-  ;<div>`This page is connected`</div>
-}
-displaytest()
+const Categories = (props) => {
+  const [categoriesId, setCategoryId] = useState(false)
+  const [rides, setRide] = useState([])
 
-const Categories = () => {
-  const [categoryId, setCategoryId] = useState(false)
-  const [ride, setRide] = useState([])
-
-  let { categoryType } = useParams()
+  let { categoryId } = useParams()
 
   useEffect(() => {
     const rideByCategory = async () => {
-      let res = await axios.get(`${BASE_URL}/components/RideCard`)
-      setRide(res.data.results)
+      let res = await axios.get(`${BASE_URL}/rides`)
+      setRide(res.data)
       setCategoryId(true)
     }
     rideByCategory()
-  }, [categoryType])
+  }, [categoryId])
 
   let rideCardReturned
 
-  if (categoryId) {
-    rideCardReturned = <RideCard rides={ride} />
+  if (categoriesId) {
+    let newCard = []
+    rides.forEach((ride) => {
+      if (categoryId === ride.category) {
+        newCard.push(ride)
+      }
+    })
+    rideCardReturned = <RideCard rides={newCard} />
   }
   return <div className="ride-container">{rideCardReturned}</div>
 }
